@@ -1,0 +1,90 @@
+.header {
+  height: 100px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+}
+
+.header img {
+  height: 70px;
+  object-fit: contain;
+}
+.header i {
+  margin-top: 40px;
+}
+.bod1,
+.bod2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.boditem {
+  width: 280px;
+  height: 370px;
+  background-color: white;
+  margin: 20px;
+}
+body {
+  margin: 0px;
+}
+
+.boditem > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 15px;
+}
+.boditem img {
+  width: 110px;
+  margin-right: 10px;
+}
+.carousel-inner {
+  width: 95%;
+  margin-left: 1%;
+  background-color: white;
+  padding: 20px;
+}
+.carousel-item img {
+  width: 100px;
+
+  margin-right: 10px;
+}
+
+.foot {
+  width: 100%;
+  height: 470px;
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(59, 53, 53);
+  color: white;
+}
+
+.foot div {
+  margin-top: 40px;
+}
+.foot p {
+  font-size: small;
+}
+
+/* .in {
+  position: absolute;
+  z-index: 10;
+} */
+.container {
+  position: relative;
+  width: 1299px;
+  height: 2500px;
+}
+#mycarouse {
+  width: 100%;
+  height: 100%;
+}
+
+.bod1 {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 280px;
+  z-index: 1;
+}

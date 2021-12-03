@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="./new.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <script src="newscript.js"></script>
+</head>
+
+<body style="background-color: rgb(233, 230, 230);">
+  
+    <div class="header">
+
+      <img
+        src="data:image/png;base64,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"
+        alt="">
+
+      <i class="fa fa-map-marker" aria-hidden="true"></i>
+      <div>
+
+        <p>Hello</p>
+        <p>Select your address</p>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          All
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+      <input type="text" style="width:60%; height:40px;">
+      <button style="width:50px;height:40px;background-color: rgb(243, 200, 7);"><i class="fa fa-search"
+          aria-hidden="true"></i></button>
+
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" style="background-color: black; height: 40px;">
+          <img
+            src="data:image/png;base64,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"
+            alt="" style="width:20px;object-fit:contain">
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+      <div>
+        <p>Hello,Sign In</p>
+        <p>Account& lists</p>
+      </div>
+      <i class="fas fa-shopping-cart"></i>
+      <h3 style="margin-top: 35px;">Cart</h3>
+    </div>
+
+    <div class="container">
+      <!-- <div id="mycarouse" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <h3>Todays deals</h3>
+          <div class="carousel-item active">
+            <div style="display:flex;justify-content: space-evenly;">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/71WskK9B1WL._SX3000_.jpg"
+                alt="Third slide">
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div style="display:flex;justify-content: space-evenly;">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/617nJvBQpHL._SX3000_.jpg"
+                alt="Third slide">
+
+            </div>
+
+          </div>
+          <div class="carousel-item">
+            <div style="display:flex;justify-content: space-evenly;">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/61oybxyYQIL._SX3000_.jpg"
+                alt="First slide">
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#mycarouse" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#mycarouse" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div> -->
+
+
+      <div class="bod1">
+        <div class="boditem">
+          <h3> Upgrade your home | amazon Brands & more
+          </h3>
+          <div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="boditem">
+          <h3> Upgrade your home | amazon Brands & more
+          </h3>
+          <div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+          </div>
+
+        </div>
+        <div class="boditem">
+          <h3> Upgrade your home | amazon Brands & more
+          </h3>
+          <div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="boditem">
+          <h3> Upgrade your home | amazon Brands & more
+          </h3>
+          <div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="boditem">
+          <h3> Upgrade your home | amazon Brands & more
+          </h3>
+          <div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="boditem">
+          <h3> Upgrade your home | amazon Brands & more
+          </h3>
+          <div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="boditem">
+          <h3> Upgrade your home | amazon Brands & more
+          </h3>
+          <div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="boditem">
+          <h3> Upgrade your home | amazon Brands & more
+          </h3>
+          <div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div id="mycarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <h3>Todays deals</h3>
+          <div class="carousel-item active">
+            <div style="display:flex;justify-content: space-evenly;">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/511LiGzVAFL._AC_SY200_.jpg"
+                alt="First slide">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/31LC-FBgpBL._AC_SY200_.jpg" alt="">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/31rQHS05m+L._AC_SY200_.jpg" alt="">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/51JU8ZlLATL._AC_SY200_.jpg" alt="">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/51ivRBHcH6L._AC_SY200_.jpg" alt="">
+
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/41r5yrIoLPL._AC_SY200_.jpg" alt="">
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div style="display:flex;justify-content: space-evenly;">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/41ezRvTwcaL._AC_SY200_.jpg"
+                alt="Third slide">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/41CLNjkYx1L._AC_SY200_.jpg"
+                alt="Third slide">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/51ivRBHcH6L._AC_SY200_.jpg"
+                alt="Third slide">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/41JKmj2rhbL._AC_SY200_.jpg"
+                alt="Third slide">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/41baD4OtCXL._AC_SY200_.jpg"
+                alt="Third slide">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/41QFLArTr+L._AC_SY200_.jpg"
+                alt="Third slide">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/41CLNjkYx1L._AC_SY200_.jpg"
+                alt="Third slide">
+            </div>
+
+          </div>
+          <div class="carousel-item">
+            <div style="display:flex;justify-content: space-evenly;">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/511LiGzVAFL._AC_SY200_.jpg"
+                alt="First slide">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/31LC-FBgpBL._AC_SY200_.jpg" alt="">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/31rQHS05m+L._AC_SY200_.jpg" alt="">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/51JU8ZlLATL._AC_SY200_.jpg" alt="">
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/51ivRBHcH6L._AC_SY200_.jpg" alt="">
+
+              <img class="d-block w-100" src="https://m.media-amazon.com/images/I/41r5yrIoLPL._AC_SY200_.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <div class="bod2">
+        <div class="boditem">
+          <h3> Upgrade your home | amazon Brands & more
+          </h3>
+          <div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="boditem">
+          <h3> Upgrade your home | amazon Brands & more
+          </h3>
+          <div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+          </div>
+
+        </div>
+        <div class="boditem">
+          <h3> Upgrade your home | amazon Brands & more
+          </h3>
+          <div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="boditem">
+          <h3> Upgrade your home | amazon Brands & more
+          </h3>
+          <div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+            <div>
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/home_private_label/moritika/week27gw/xcm_banners_tvs_186x116-product-badge-4qqt8_186x116_in-en._SY116_CB663888093_.jpg"
+                alt="">
+              <p><small>Small LED tvs</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <div>
+          <p style="font-size:medium;font-weight: bolder;">Get to know us</p>
+          <p>About us</p>
+          <p>Careers</p>
+          <p>Press Releases</p>
+        </div>
+        <div>
+          <p style="font-size:medium;font-weight: bolder;">Connect with us</p>
+          <p>Fcebook</p>
+          <p>Twitter</p>
+          <p>Instagram</p>
+        </div>
+        <div>
+          <p style="font-size:medium;font-weight: bolder;">Make money with us</p>
+          <p>Sell on amazon</p>
+          <p>Sell under Amazon</p>
+          <p>Amazon gold selling</p>
+          <p>Become an affiliate</p>
+          <p>Advertise</p>
+          <p>Amazon pay</p>
+        </div>
+        <div>
+          <p style="font-size:medium;font-weight: bolder;">Let us help you</p>
+          <p>Your account</p>
+          <p>Returns center</p>
+          <p>Amazon app download</p>
+        </div>
+
+      </div>
+   
+</body>
+
+</html>
